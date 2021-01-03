@@ -1,6 +1,6 @@
 from django.utils import timezone
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Person
 from .forms import PersonForm
 
@@ -25,4 +25,18 @@ def post_new(request):
             return redirect('get_npc_id', npcid=post.pk)
     else:
         form = PersonForm
+    return render(request, 'npc/post_edit.html', {'form': form})
+
+
+def post_edit(request, pk):
+    post = get_object_or_404(Person, id=pk)
+    if request.method == "POST":
+        form = PersonForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('get_npc_id', npcid=post.pk)
+    else:
+        form = PersonForm(instance=post)
     return render(request, 'npc/post_edit.html', {'form': form})

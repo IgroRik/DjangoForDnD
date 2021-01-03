@@ -8,6 +8,7 @@ urlpatterns = [
     path('', views.post_list, name='post_list'),
     path('details/<int:npcid>/', views.get_npc_id, name='get_npc_id'),
     path('post/new/', views.post_new, name='post_new'),
+    path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
 ]
 
 if settings.DEBUG:
