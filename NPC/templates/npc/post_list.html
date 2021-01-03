@@ -1,8 +1,18 @@
+{% load static %}
 <html>
     <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/npc.css' %}" type="text/css">
         <title>NPC</title>
     </head>
     <body>
-        Hi there Obiwan Kenobi
+    {% for post in posts %}
+        <div>
+        <h1>{{ post.name }}</h1>
+        <p>{{ post.map }}</p>
+        <p>{{ post.text }}</p>
+        </div>
+    {% endfor %}
     </body>
 </html>
