@@ -14,7 +14,7 @@ SECRET_KEY = '8l7m)506-_9&=e7rz+s&ub0q#(5(@^^cu(8gda_m_o*o^#%lum'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'http://igrorik.pythonanywhere.com']
 
 
 # Application definition
